@@ -3,11 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Quiz</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link href="./assets/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>quiz</h1>
+    <main>
+      <div id="question-container" class="hidden">
+        <div id="question">Question</div>
+        <div id="answer-button">
+          <button>Answer 1</button>
+          <button>Answer 2</button>
+          <button>Answer 3</button>
+          <button>Answer 4</button>
+        </div>
+      </div>
+      <div class="controller">
+        <button id="start">Start Quiz</button>
+        <button id="next" class="hide">Next Question</button>
+      </div>
+    </main>
     <script src="./assets/script.js"></script>
   </body>
 </html>
