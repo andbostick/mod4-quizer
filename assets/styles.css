@@ -5,4 +5,30 @@ body {
   height: 100%;
   justify-content: center;
   align-items: center;
+  background-color: #343330;
+}
+
+main {
+  background-color: #45462a;
+  color: #ffa737;
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+}
+
+#answer-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.buttons {
+  padding: 10px;
+  background-color: #dc851f;
+}
+
+.buttons:hover {
+  background-color: #ffa737;
+  transform: translateY(3px);
 }
