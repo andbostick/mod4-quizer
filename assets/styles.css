@@ -16,6 +16,12 @@ main {
   padding: 20px;
 }
 
+.controller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #answer-buttons {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -31,4 +37,8 @@ main {
 .buttons:hover {
   background-color: #ffa737;
   transform: translateY(3px);
+}
+
+.hidden {
+  display: none;
 }
