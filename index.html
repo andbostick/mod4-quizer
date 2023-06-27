@@ -24,12 +24,14 @@
       <div class="controller">
         <button id="start" class="buttons">Start Quiz</button>
         <button id="next" class="hidden buttons">Next Question</button>
+      </div>
+      <div class="question-result">
         <h2 id="incorrect" class="hidden">Incorrect</h2>
         <h2 id="correct" class="hidden">Correct</h2>
       </div>
     </main>
     <section class="hidden">
-      <h1>Times Up</h1>
+      <h1>GameOver</h1>
       <p id="score">High Score</p>
       <label>Enter Name:</label>
       <input type="text" placeholder="Name" />
@@ -40,6 +42,6 @@
         onclick="history.go(0)"
       />
     </section>
-    <script src="./assets/script.js"></script>
+    <script src="./assets/script.js" type="module"></script>
   </body>
 </html>

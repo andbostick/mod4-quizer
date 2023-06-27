@@ -24,6 +24,10 @@ section {
   gap: 10px;
 }
 
+.question-result {
+  text-align: center;
+}
+
 .controller {
   display: flex;
   justify-content: center;

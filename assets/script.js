@@ -1,18 +1,32 @@
 var questionsArr = [
   {
-    question: "first question",
+    question: "Which of the following is a disadvantage of using JavaScript?",
+    answers: [
+      {
+        text: "Client-side JavaScript does not allow the reading or writing of files.",
+        correct: false,
+      },
+      {
+        text: "JavaScript can not be used for Networking applications because there is no such support available.",
+        correct: false,
+      },
+      {
+        text: "JavaScript doesn't have any multithreading or multiprocess capabilities.",
+        correct: false,
+      },
+      {
+        text: "all of the above",
+        correct: true,
+      },
+    ],
+  },
+  {
+    question:
+      "Can you pass a anonymous function as an argument to another function?",
     answers: [
       {
         text: "true",
         correct: true,
-      },
-      {
-        text: "false",
-        correct: false,
-      },
-      {
-        text: "false",
-        correct: false,
       },
       {
         text: "false",
@@ -21,22 +35,67 @@ var questionsArr = [
     ],
   },
   {
-    question: "second question",
+    question:
+      "Which of the following type of variable takes precedence over other if names are same?",
     answers: [
       {
-        text: "true",
+        text: " global variable",
+        correct: false,
+      },
+      {
+        text: "local variable",
         correct: true,
       },
       {
-        text: "false",
+        text: "Both of the above.",
         correct: false,
       },
       {
-        text: "false",
+        text: "None of the above.",
+        correct: false,
+      },
+    ],
+  },
+  {
+    question:
+      "Which built-in method returns the calling string value converted to upper case?",
+    answers: [
+      {
+        text: "toUpperCase()",
+        correct: true,
+      },
+      {
+        text: "toUpper()",
         correct: false,
       },
       {
-        text: "false",
+        text: "changeCase(case",
+        correct: false,
+      },
+      {
+        text: "None of the above.",
+        correct: false,
+      },
+    ],
+  },
+  {
+    question:
+      "Which of the following function of Boolean object returns the primitive value of the Boolean object?",
+    answers: [
+      {
+        text: "toSource()",
+        correct: false,
+      },
+      {
+        text: "valueOf()",
+        correct: true,
+      },
+      {
+        text: "toString()",
+        correct: false,
+      },
+      {
+        text: "None of the above.",
         correct: false,
       },
     ],
@@ -64,6 +123,8 @@ start.addEventListener("click", startGame);
 nextButton.addEventListener("click", nextQuestion);
 
 function startGame() {
+  //starts the game, starts timer and sets the current question to 0
+  //the start of the array
   currentQuestion = 0;
   start.classList.add("hidden");
   questionContainer.classList.remove("hidden");
@@ -72,12 +133,18 @@ function startGame() {
 }
 
 function nextQuestion() {
-  clearPrevQuestion();
-  showQuestion(questionsArr[currentQuestion]);
-  currentQuestion++;
+  //checks if there is more questions in the array if there isnt ends the game
+  if (!(questionsArr.length == currentQuestion)) {
+    clearPrevQuestion();
+    showQuestion(questionsArr[currentQuestion]);
+    currentQuestion++;
+  } else {
+    endQuiz();
+  }
 }
 
 function clearPrevQuestion() {
+  //makes sure to hide buttons and text from the previous question
   nextButton.classList.add("hidden");
   correctTitle.classList.add("hidden");
   incorrectTitle.classList.add("hidden");
@@ -85,9 +152,10 @@ function clearPrevQuestion() {
 }
 
 function chooseAnswer(event) {
+  //grabs answer clicked
   var selected = event.target;
   var correctAns = selected.classList.contains("true");
-  console.log(correctAns);
+  //checks if its correct or incorrect to show result
   if (correctAns) {
     correctTitle.classList.remove("hidden");
     score++;
@@ -100,6 +168,7 @@ function chooseAnswer(event) {
 }
 
 function showQuestion(question) {
+  //loops through array to get the question and answer and add them to the DOM
   questionTitle.innerHTML = question.question;
   question.answers.forEach((answer) => {
     var button = document.createElement("button");
@@ -111,17 +180,24 @@ function showQuestion(question) {
   });
 }
 
+function endQuiz() {
+  //shows the end input and total score
+  main.classList.add("hidden");
+  scoreForm.classList.remove("hidden");
+  highScore.innerText = score;
+}
+
 function startTimer() {
-  console.log(timeSpent);
+  //shows time remaining in the quiz
   timer.textContent = currentTime;
-  setTimer = setInterval(function () {
+  var setTimer = setInterval(function () {
+    //variable to reduce current time and to add time to when question in answered wrong
     timeSpent++;
     timer.textContent = currentTime - timeSpent;
-    if (timeSpent == 50) {
+    //ends game once max time is reached
+    if (timeSpent >= 50) {
       clearInterval(setTimer);
-      main.classList.add("hidden");
-      scoreForm.classList.remove("hidden");
-      highScore.innerText = score;
+      endQuiz();
     }
   }, 1000);
 }
