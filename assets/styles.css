@@ -8,12 +8,20 @@ body {
   background-color: #343330;
 }
 
-main {
+main,
+section {
   background-color: #45462a;
   color: #ffa737;
   width: 400px;
-  height: 200px;
+  height: 100%;
   padding: 20px;
+  font-size: 24px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .controller {
