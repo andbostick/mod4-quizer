@@ -15,18 +15,16 @@
   </head>
   <body>
     <main>
+      <p>Timer</p>
       <div id="question-container" class="hidden">
         <div id="question-title">Question</div>
-        <div id="answer-buttons">
-          <button class="buttons answers">Answer 1</button>
-          <button class="buttons answers">Answer 2</button>
-          <button class="buttons answers">Answer 3</button>
-          <button class="buttons answers">Answer 4</button>
-        </div>
+        <div id="answer-buttons"></div>
       </div>
       <div class="controller">
         <button id="start" class="buttons">Start Quiz</button>
         <button id="next" class="hidden buttons">Next Question</button>
+        <h2 id="incorrect" class="hidden">Incorrect</h2>
+        <h2 id="correct" class="hidden">Correct</h2>
       </div>
     </main>
     <script src="./assets/script.js"></script>
